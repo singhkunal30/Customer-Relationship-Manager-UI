@@ -1,5 +1,5 @@
 export class UriConfig{
-    public readonly baseUrl = 'http://localhost:2002';
+    public readonly baseUrl = 'http://localhost:2002/api/v1';
     public readonly authenticate = '/authenticate';
-    public readonly customer = "/customer";
+    public readonly contact = "/contacts";
 }

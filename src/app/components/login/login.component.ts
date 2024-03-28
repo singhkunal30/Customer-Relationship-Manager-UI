@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { timeout } from 'rxjs';
 import { ErrorDTO } from 'src/app/model/Error';
 import { JwtToken } from 'src/app/model/JwtToken';
-import { UserDTO } from 'src/app/model/UserDTO';
+import { JwtRequest } from 'src/app/model/JwtRequest';
 import { LoginService } from 'src/app/services/login.service';
 
 @Component({
@@ -13,23 +12,23 @@ import { LoginService } from 'src/app/services/login.service';
 })
 export class LoginComponent implements OnInit {
 
-  userDTO: UserDTO = new UserDTO(); 
+  jwtRequest: JwtRequest = new JwtRequest(); 
   exception: boolean = false;
   error:ErrorDTO = new ErrorDTO();
   jwtToken: JwtToken = new JwtToken();
-  constructor(private loginService:LoginService, private router:Router) { }
+  constructor(private loginService:LoginService, @Inject(Router) private router:Router) { }
 
   ngOnInit(): void {
     this.exception = false;
   }
 
   login():void{
-    this.loginService.login(this.userDTO).subscribe(
+    this.loginService.login(this.jwtRequest).subscribe(
       (res) => {
         this.jwtToken = res;
         this.loginService.saveToken(this.jwtToken.token);
         setTimeout(()=>{
-          this.router.navigateByUrl("/customer"),2000})
+          this.router.navigateByUrl("/contacts"),2000})
       },
       (err) => {
         this.exception = true;

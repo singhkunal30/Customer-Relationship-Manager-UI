@@ -8,8 +8,14 @@
         <li class="nav-item active">
           <a class="nav-link" routerLink="/home" routerLinkActive="active">Home <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/customer" routerLinkActive="active">Customers</a>
+        <li class="nav-item dropdown" ngbDropdown>
+          <a class="nav-link dropdown-toggle" id="navbarDropdownContacts" role="button" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+            Contacts
+          </a>
+          <ul class="nav-item dropdown-menu bg-dark"  ngbDropdownMenu aria-labelledby="navbarDropdownContacts">
+            <li ngbDropdownItem><a class="nav-link dropdown-item" routerLink="/contacts" routerLinkActive="active">Show All</a></li>
+            <li ngbDropdownItem><a class="nav-link dropdown-item" routerLink="/contact" routerLinkActive="active">Add</a></li>
+          </ul>
         </li>
       </ul>
       <ul class="navbar-nav ms-auto">

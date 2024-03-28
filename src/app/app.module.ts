@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
 import { AppComponent } from './app.component';
-import { CustomerManagementComponent } from './components/customer-management/customer-management.component';
+import { ContactComponent } from './components/contact/contact.component';
 import { LoginComponent } from './components/login/login.component';
 import { LoginService } from './services/login.service';
 import { UriConfig } from './config/URIconfig';
@@ -12,11 +12,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { HomeComponent } from './components/home/home.component';
 import { InterceptorService } from './services/interceptor.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CustomerManagementComponent,
+    ContactComponent,
     LoginComponent,
     NavBarComponent,
     HomeComponent
@@ -31,7 +32,8 @@ import { InterceptorService } from './services/interceptor.service';
     CommonModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ]
 })
 export class AppModule { }

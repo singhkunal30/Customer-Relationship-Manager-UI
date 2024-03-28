@@ -1,28 +1,28 @@
 import { Component, OnInit } from '@angular/core';
-import { CustomerDTO } from 'src/app/model/CustomerDTO';
+import { ContactDTO } from 'src/app/model/ContactDTO';
 import { ErrorDTO } from 'src/app/model/Error';
-import { CustomerManagementService } from 'src/app/services/customer-management.service';
+import { ContactService } from 'src/app/services/contact.service';
 
 @Component({
-  selector: 'app-customer-management',
-  templateUrl: './customer-management.component.html',
-  styleUrls: ['./customer-management.component.css']
+  selector: 'app-Contact',
+  templateUrl: './Contact.component.html',
+  styleUrls: ['./Contact.component.css']
 })
-export class CustomerManagementComponent implements OnInit {
+export class ContactComponent implements OnInit {
 
   dataPresent:boolean = false;
-  customers: CustomerDTO[] = [];
+  contacts: ContactDTO[] = [];
   error:ErrorDTO = new ErrorDTO();
   exception: boolean = false;
 
-  constructor(private customerService:CustomerManagementService) { }
+  constructor(private contactService:ContactService) { }
 
   ngOnInit(): void {
-    this.customerService.getAllCustomers().subscribe(
+    this.contactService.getAllContacts().subscribe(
       (res)=>{
         console.log(res);
         if(res != null){
-          this.customers = res
+          this.contacts = res
           this.dataPresent = true;
         }
       }, 
@@ -39,7 +39,7 @@ export class CustomerManagementComponent implements OnInit {
   }
 
   delete(id:number){
-    this.customerService.removeCustomer(id).subscribe(
+    this.contactService.removeContact(id).subscribe(
       ()=>{
         console.log("Deleted successfully");
       },
@@ -48,8 +48,8 @@ export class CustomerManagementComponent implements OnInit {
       });
   }
 
-  update(customerDTO:CustomerDTO){
-    this.customerService.updateCustomer(customerDTO).subscribe(
+  update(contactDTO:ContactDTO){
+    this.contactService.updateContact(contactDTO).subscribe(
       (res)=>{
         if(res != null){
           console.log("Updated Successfully");
@@ -60,8 +60,8 @@ export class CustomerManagementComponent implements OnInit {
       });
   }
 
-  add(customerDTO:CustomerDTO){
-    this.customerService.createCustomer(customerDTO).subscribe(
+  add(contactDTO:ContactDTO){
+    this.contactService.createContact(contactDTO).subscribe(
       (res)=>{
         if(res != null){
           console.log("Added Successfully");

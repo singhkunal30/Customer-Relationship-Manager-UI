@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { LoginService } from '../login.service';
 import { JwtToken } from 'src/app/model/JwtToken';
 import { ErrorDTO } from 'src/app/model/Error';
@@ -15,7 +15,7 @@ export class AuthService {
   error:ErrorDTO = new ErrorDTO();
   jT:JwtToken = new JwtToken();
   exception:boolean = false;
-  constructor(private loginService:LoginService, private router:Router) {}
+  constructor(private loginService:LoginService,@Inject(Router) private router:Router) {}
 
   isAuthenticated(): boolean {
     if(this.jwtToken!=null){
