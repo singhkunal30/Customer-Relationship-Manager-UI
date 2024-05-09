@@ -11,12 +11,16 @@ export class InterceptorService implements HttpInterceptor{
     if(request.url.includes("/authenticate/auth")){
       return next.handle(request);
     }
-    console.log(this.token);
-    const modifiedRequest = request.clone({
-      setHeaders:{
-        Authorization: `Bearer ${this.token}`
-      }
-    });
-    return next.handle(modifiedRequest);
+    if(this.token != null){
+      const modifiedRequest = request.clone({
+        setHeaders:{
+          Authorization: `Bearer ${this.token}`
+        }
+      });
+      return next.handle(modifiedRequest);
+    }
+    else {
+      return next.handle(request);
+    }
   }
 }

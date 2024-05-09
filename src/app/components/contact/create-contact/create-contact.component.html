@@ -1,0 +1,40 @@
+<div class="create-contact-dialog">
+  <h2 mat-dialog-title class="form-header">Create a contact</h2>
+  <button mat-icon-button mat-dialog-close class="close-button">
+    <mat-icon aria-label="Close dialog">close</mat-icon>
+  </button>
+  <form #contactForm="ngForm" (ngSubmit)="onSubmit()">
+    <div mat-dialog-content class="form-body">
+      <div class="form-field">
+        <mat-label for="firstname">FIRSTNAME</mat-label>
+        <input matInput type="text" id="firstname" placeholder="Enter the FIRSTNAME" [(ngModel)]="contact.firstName" name="firstName" required>
+      </div>
+      <div class="form-field">
+        <mat-label for="lastname">LASTNAME</mat-label>
+        <input matInput type="text" id="lastname" placeholder="Enter the LASTNAME" [(ngModel)]="contact.lastName" name="lastName" required>
+      </div>
+      <div class="form-field">
+        <mat-label for="email">EMAIL</mat-label>
+        <input matInput type="email" id="email" placeholder="Enter the email address" [(ngModel)]="contact.email" name="email" required pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
+        <div *ngIf="contactForm.controls['email'].invalid && (contactForm.controls['email'].dirty || contactForm.controls['email'].touched)">
+        </div>
+      </div>
+      <div class="form-field">
+        <mat-label for="phone">PHONE</mat-label>
+        <input matInput type="text" id="phone" placeholder="Enter the phone number" [(ngModel)]="contact.phone" name="phone" required pattern="^[0-9]{10}$">
+        <div *ngIf="contactForm.controls['phone'].invalid && (contactForm.controls['phone'].dirty || contactForm.controls['phone'].touched)">
+        </div>
+      </div>
+      <div class="form-field">
+        <mat-label for="lists">LISTS</mat-label>
+        <mat-select placeholder="Select lists" [(ngModel)]="contactLists" name="lists">
+          <mat-option *ngFor="let list of contactLists" [value]="list">{{ list }}</mat-option>
+        </mat-select>
+      </div>
+    </div>
+    <div mat-dialog-actions class="form-footer">
+      <button mat-button mat-dialog-close class="cancel-button">Cancel</button>
+      <button mat-button class="create-button" [disabled]="contactForm.invalid">Create</button>
+    </div>
+  </form>
+</div>

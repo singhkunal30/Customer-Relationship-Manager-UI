@@ -1,4 +1,4 @@
-<body>
+<div class="form-container"> 
     <div class="form">
         <form #loginForm="ngForm" (ngSubmit)="login()">
             <h3>Login</h3>
@@ -9,7 +9,7 @@
             <label for="password">Password</label>
             <input name="password" type="password" [(ngModel)]="jwtRequest.password" placeholder="Password" id="password" required>
 
-            <button>Log In</button>
+            <button type="submit">Log In</button>
             <div class="social">
                 <div class="go"><i class="fa fa-google"></i>  Google</div>
                 <div class="fb"><i class="fab fa-facebook"></i>  Facebook</div>
@@ -17,4 +17,4 @@
         </form>
         <div id="exception" *ngIf="exception">{{error.errorMessage}}</div>
     </div>
-</body>
+</div>

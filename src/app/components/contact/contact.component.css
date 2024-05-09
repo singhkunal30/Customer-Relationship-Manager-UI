@@ -1,6 +1,61 @@
-.container{
-    margin-top: 50px;
+.contacts-container {
+    width: 100%;
+    border-radius: 8px;
+    background-color: #ffffff;
+    padding: 20px;
+    margin: auto;
+    position: fixed;
+    display: flex;
 }
-th, td{
-    text-align: center;
+  
+.contacts-navigation {
+    width: 200px;
 }
+
+.contacts-main{
+    flex: 1;
+}
+
+.contacts-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+  
+.header-buttons {
+    display: flex;
+}
+  
+.form-header {
+    color: #1f2d3d;
+    font-size: 18px;
+    margin: 0;
+}
+  
+.contacts-header button {
+    margin-left: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 8px 16px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    color: #1f2d3d;
+}
+
+tr:hover {
+    background-color: #f2f2f2;
+}
+  

@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ContactDTO } from 'src/app/model/ContactDTO';
 import { ErrorDTO } from 'src/app/model/Error';
 import { ContactService } from 'src/app/services/contact.service';
+import { ImportContactsComponent } from './import-contacts/import-contacts.component';
+import { MatDialog } from '@angular/material/dialog';
+import { CreateContactComponent } from './create-contact/create-contact.component';
 
 @Component({
   selector: 'app-Contact',
@@ -14,8 +17,15 @@ export class ContactComponent implements OnInit {
   contacts: ContactDTO[] = [];
   error:ErrorDTO = new ErrorDTO();
   exception: boolean = false;
+  dataContacts: any = [
+    { firstName: 'John', lastName: 'Doe', email: 'john@example.com', phone: '123-456-7890' },
+    { firstName: 'Jane', lastName: 'Smith', email: 'jane@example.com', phone: '987-654-3210' }
+    // Add more contact objects as needed
+  ];
 
-  constructor(private contactService:ContactService) { }
+  displayedColumns: string[] = ['name', 'email', 'phone'];
+
+  constructor(private contactService:ContactService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.contactService.getAllContacts().subscribe(
@@ -72,4 +82,12 @@ export class ContactComponent implements OnInit {
       });
   }
 
+  openCreateContactDialog(): void {
+    const dialogRef = this.dialog.open(CreateContactComponent);
+  }
+
+
+  openImportContactsDialog(): void {
+    const dialogRef = this.dialog.open(ImportContactsComponent);
+  }
 }

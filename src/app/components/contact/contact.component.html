@@ -1,28 +1,37 @@
 <app-nav-bar></app-nav-bar>
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <div class="table-responsive">
-        <table class="table table-dark">
-          <thead>
-            <tr>
-              <th class="col col-md-3">Name</th>
-              <th class="col col-md-3">Email</th>
-              <th class="col col-md-3">Phone Number</th>
-              <th class="col col-md-3" colspan="2">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor= "let c of contacts">
-              <td>{{c.firstName}} {{c.lastName}}</td>
-              <td>{{c.email}}</td>
-              <td>{{c.phone}}</td>
-              <td><button class="btn btn-outline-danger" >Delete</button></td>
-              <td><button class="btn btn-outline-primary" >Update</button></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+<div class="contacts-container">
+  <div class="contacts-navigation">
+    <!-- Add navigation content here -->
+  </div>
+  <div class="contacts-main">
+    <div class="contacts-header">
+        <h2 class="form-header">Contacts</h2>
+        <div class="header-buttons">
+          <button mat-raised-button color="primary" (click)="openCreateContactDialog()">Create Contact</button>
+          <button mat-raised-button color="primary" (click)="openImportContactsDialog()">Import Contacts</button>
+        </div>
+    </div>
+
+    <div class="contacts-table">
+      <table mat-table [dataSource]="dataContacts">
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef class="col col-md-3"> Name </th>
+          <td mat-cell *matCellDef="let contact"> {{ contact.firstName }} {{ contact.lastName }} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef class="col col-md-3"> Email </th>
+          <td mat-cell *matCellDef="let contact"> {{ contact.email }} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="phone">
+          <th mat-header-cell *matHeaderCellDef class="col col-md-3"> Phone Number </th>
+          <td mat-cell *matCellDef="let contact"> {{ contact.phone }} </td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
     </div>
   </div>
 </div>

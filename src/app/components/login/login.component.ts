@@ -4,6 +4,7 @@ import { ErrorDTO } from 'src/app/model/Error';
 import { JwtToken } from 'src/app/model/JwtToken';
 import { JwtRequest } from 'src/app/model/JwtRequest';
 import { LoginService } from 'src/app/services/login.service';
+import { ThisReceiver } from '@angular/compiler';
 
 @Component({
   selector: 'app-login',
@@ -26,9 +27,11 @@ export class LoginComponent implements OnInit {
     this.loginService.login(this.jwtRequest).subscribe(
       (res) => {
         this.jwtToken = res;
-        this.loginService.saveToken(this.jwtToken.token);
-        setTimeout(()=>{
-          this.router.navigateByUrl("/contacts"),2000})
+        if(this.jwtToken){
+          this.loginService.saveToken(this.jwtToken.token);       
+          setTimeout(()=>{
+            this.router.navigateByUrl("/contacts"),2000})   
+        }
       },
       (err) => {
         this.exception = true;
@@ -36,6 +39,11 @@ export class LoginComponent implements OnInit {
         this.error.errorCode = err.error.error_code;
       }
     )
+  }
+
+  logout(){
+    this.loginService.logout();
+    this.router.navigateByUrl("/login");
   }
 
 }

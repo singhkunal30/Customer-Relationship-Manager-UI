@@ -29,4 +29,8 @@ export class LoginService {
   public getToken(): string | null {
     return sessionStorage.getItem(this.TOKEN_KEY);
   }
+
+  public logout(){
+    sessionStorage.removeItem(this.TOKEN_KEY);
+  }
 }

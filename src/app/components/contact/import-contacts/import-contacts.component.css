@@ -1,0 +1,81 @@
+.import-contacts-dialog {
+    max-width: 400px;
+    width: 100%;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: auto;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .import-contacts-dialog .form-header {
+    color: #1f2d3d;
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .import-contacts-dialog .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .import-contacts-dialog .form-body {
+    margin-bottom: 20px;
+  }
+  
+  .import-contacts-dialog .form-field {
+    margin-bottom: 15px;
+  }
+  
+  .import-contacts-dialog .form-field mat-label {
+    display: block;
+    margin-bottom: 5px;
+    color: #1f2d3d;
+  }
+  
+  .import-contacts-dialog .form-field input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .import-contacts-dialog .form-footer {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .import-contacts-dialog .cancel-button,
+  .import-contacts-dialog .import-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .import-contacts-dialog .cancel-button {
+    background-color: #f4414f;
+    color: #ffffff;
+  }
+  
+  .import-contacts-dialog .import-button {
+    background-color: #1f2d3d;
+    color: #ffffff;
+  }
+  
+  .import-contacts-dialog .import-button[disabled] {
+    background-color: #e0e0e0;
+    color: rgba(0, 0, 0, 0.26);
+    cursor: not-allowed;
+  }
+  

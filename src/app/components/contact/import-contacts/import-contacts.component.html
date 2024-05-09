@@ -1,0 +1,19 @@
+<div class="import-contacts-dialog">
+    <h2 mat-dialog-title class="form-header">Import Contacts</h2>
+    <button mat-icon-button mat-dialog-close class="close-button">
+      <mat-icon aria-label="Close dialog">close</mat-icon>
+    </button>
+    <form #importContactForm="ngForm">
+      <div mat-dialog-content class="form-body">
+        <div class="form-field">
+          <mat-label for="file">Upload Excel File</mat-label>
+          <input matInput type="file" id="file" (change)="onUpload($event)" accept=".xlsx, .xls">
+        </div>
+      </div>
+      <div mat-dialog-actions class="form-footer">
+        <button mat-button mat-dialog-close class="cancel-button">Cancel</button>
+        <button mat-button class="import-button">Import</button>
+      </div>
+    </form>
+</div>
+  

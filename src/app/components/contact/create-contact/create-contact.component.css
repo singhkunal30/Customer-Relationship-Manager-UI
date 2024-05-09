@@ -1,0 +1,95 @@
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.form {
+  width: 400px;
+  border-radius: 5px;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.form-header {
+  color: #1f2d3d;
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.form-body {
+  margin-bottom: 20px;
+}
+
+.form-field {
+  margin-bottom: 15px;
+}
+
+.form-field label {
+  display: block;
+  margin-bottom: 5px;
+  color: #1f2d3d;
+}
+
+.form-field input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cancel-button,
+.create-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cancel-button {
+  background-color: #f4414f;
+  color: #ffffff;
+}
+
+.create-button {
+  background-color: #1f2d3d;
+  color: #ffffff;
+} 
+
+.create-button[disabled] {
+  background-color: #e0e0e0; /* Change to your desired color */
+  color: rgba(0, 0, 0, 0.26); /* Change to your desired text color */
+  cursor: not-allowed;
+}
+
+.create-contact-dialog {
+  max-width: 400px; /* Set the maximum width of the dialog */
+  width: 100%; /* Ensure the dialog takes the full width of its parent */
+  border: 2px solid #ccc; /* Add a border with desired thickness and color */
+  border-radius: 8px; /* Add border radius for rounded corners */
+  padding: 20px; /* Add padding for content spacing */
+  margin: auto; /* Center the dialog horizontally */
+  position: fixed; /* Ensure the dialog stays centered even when scrolling */
+  top: 50%; /* Move the dialog down by 50% of the viewport height */
+  left: 50%; /* Move the dialog right by 50% of the viewport width */
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
